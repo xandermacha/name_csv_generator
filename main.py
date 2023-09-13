@@ -13,8 +13,8 @@ def read_csv(file_path):
     return names
 
 
-field_names = ['PRODUCT_HANDLE','STATE','RATING', 'TITLE', 'AUTHOR', 'EMAIL',
-               'LOCATION','BODY', 'IMGURL', 'REPLY', 'CREATED_AT', 'REPLIED_AT']
+field_names = ['product_handle','state','rating', 'title', 'author', 'email',
+               'location','body', 'imageUrl', 'reply', 'created_at', 'replied_at']
 def write_to_newcsv(dict):
    
     with open('new_names.csv', 'a',newline='' ) as f:
@@ -24,7 +24,7 @@ def write_to_newcsv(dict):
         
 
 # Paths to your CSV files
-first_names_file = 'first_names.csv'
+first_names_file = 'name_list_60k.csv'
 last_names_file = 'last_names.csv'
 
 # Read data from the CSV files
@@ -50,8 +50,8 @@ def get_random_name():
         # Determine the rating
         rating = 5 if random.random() < 0.75 else 4
         
-        name_dict = {"PRODUCT_HANDLE": 'autoair' ,"STATE":'published',"RATING": rating, "TITLE": '', "AUTHOR": full_name, "EMAIL": '', 
-                     "LOCATION": '', "BODY": ' ', "IMGURL": '', "REPLY": '', "CREATED_AT": '', "REPLIED_AT": '' }
+        name_dict = {"product_handle": 'autoair' ,"state":'published',"rating": rating, "title": '', "author": full_name, "email": '', 
+                     "location": '', "body": ' ', "imageUrl": '', "reply": '', "created_at": '', "replied_at": '' }
         name_list.append(name_dict)
     else:
         return None  # All first names have been used
@@ -60,11 +60,12 @@ def get_random_name():
 index = [0]
 
 # Example of how to generate the list of dictionaries
-for _ in range(10):  # Generate more than 26 names
+for _ in range(4000):  # Generate more than 26 names
     get_random_name()
 
 # Print the generated list of dictionaries
 for name in name_list:
+    write_to_newcsv(name)
     print(name)
   
 
