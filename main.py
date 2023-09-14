@@ -60,7 +60,7 @@ def get_random_name():
 index = [0]
 
 # Example of how to generate the list of dictionaries
-for _ in range(4000):  # Generate more than 26 names
+for _ in range(4000):  
     get_random_name()
 
 # Print the generated list of dictionaries
